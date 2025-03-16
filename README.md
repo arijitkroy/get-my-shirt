@@ -10,7 +10,7 @@
 
 ## Project Overview
 Problem Statement:
-We aim to solve the losses of the ecommerce websites due to returns related to the size issue of the person buying the product.
+We aim to solve the losses faced by the e-commerce websites due to returns related to the size issues of the person buying the shirts / T-shirts.
 
 Solution / Approach:
 "Get My Shirt" is a web application that predicts a user's T-shirt size from an uploaded image and then recommends T-shirts from a database of scrapped e-commerce platforms like Meesho. The app leverages computer vision, artificial intelligence, deep learning, and web scraping to provide a personalized shopping experience.
