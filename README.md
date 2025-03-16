@@ -3,7 +3,7 @@
 ## Links
 🔗 [Get-My-Shirt Website](https://get-my-shirt.streamlit.app/)  
 🔗 [Website Documentation](https://docs.google.com/document/d/1pUVNLvaKnK0ZBJ5hR4H6tP-Kt6ChOVKLsWBKlJjPVAU/edit?usp=sharing)  
-🔗 [Get-My-Shirt Demo Video](https://youtu.be/CqCzhZlZPBo)
+🔗 [Get-My-Shirt Demo Video](https://youtu.be/CqCzhZlZPBo) <br/>
 🔗 [Get-My-Shirt-YOLO](https://colab.research.google.com/drive/1ughT0yDnSG0hD1A4nJMxJVt3OPfKWq3t?usp=sharing)
 
 ## Project Overview
