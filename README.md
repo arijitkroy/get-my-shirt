@@ -1,4 +1,4 @@
-<img src="https://get-my-shirt.streamlit.app/~/+/media/4d0fc7deb631f5de30b63e7ff2f516889323d6d268c464a993ecdcc1.png" width="600px"/>
+<p align=center><img src="https://get-my-shirt.streamlit.app/~/+/media/4d0fc7deb631f5de30b63e7ff2f516889323d6d268c464a993ecdcc1.png" width="600px"/></p>
 
 # <p align=center>A Computer Vision Powered Approach</p>
 
