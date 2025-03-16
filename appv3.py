@@ -8,7 +8,7 @@ from scrape import getDetails
 from PIL import Image
 import requests
 from io import BytesIO
-from genai import chat_with_gemini
+from genai import chat_with_gemini_stream
 
 st.set_page_config(
     page_title="Get my Shirt",
@@ -103,7 +103,7 @@ if analyze_clicked:
             st.markdown("### Recommended T-Shirts")
             shirts = getDetails()
             cols = st.columns(5)
-            for i, shirt in enumerate(shirts):
+            for i, shirt in enumerate(shirts[:5]):
                 with cols[i]:
                     response = requests.get(shirt["Product Image"])
                     img = Image.open(BytesIO(response.content))
@@ -112,9 +112,8 @@ if analyze_clicked:
                     st.write(f"**{shirt['Product Name']}**")
                     st.write(f"Price: {shirt['Price']}")
                     st.markdown(f"[View Product]({shirt['Product Link']})")
-            shirts = getDetails()
             cols = st.columns(5)
-            for i, shirt in enumerate(shirts):
+            for i, shirt in enumerate(shirts[5:]):
                 with cols[i]:
                     response = requests.get(shirt["Product Image"])
                     img = Image.open(BytesIO(response.content))
@@ -135,4 +134,8 @@ with st.sidebar:
     messages = st.container()
     if prompt := st.chat_input("Say 'Hi'"):
         messages.chat_message("user").write(prompt)
-        messages.chat_message("ai").write(chat_with_gemini(prompt, st.secrets["GEMINI_API"]))
+        ai_placeholder = messages.chat_message("ai").empty()
+        full_response = ""
+        for chunk in chat_with_gemini_stream(prompt, st.secrets["GEMINI_API"]):
+            full_response += chunk
+            ai_placeholder.write(full_response)

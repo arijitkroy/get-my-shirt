@@ -1,18 +1,27 @@
+from streamlit import secrets
 import google.generativeai as genai
 
-def chat_with_gemini(user_input, api_token):
+gen_conf = {
+  "temperature": 1,
+  "top_p": 0.95,
+  "top_k": 64,
+  "max_output_tokens": 8192,
+  "response_mime_type": "text/plain",
+}
+
+model = genai.GenerativeModel(model_name=secrets["MODEL_ID"], generation_config=gen_conf)
+
+def chat_with_gemini_stream(user_input, api_token):
     genai.configure(api_key=api_token)
-    allowed_topics = [
-        "T-shirts", "fashion", "clothing", "outfits", "style", "fabric", "brands", "size",
-        "colors", "recommended T-shirts", "website features", "shopping", "scraped T-shirts"
-    ]
 
     if user_input.lower() in ["hi", "hello"]:
-        return "Welcome to our Website. Feel free to ask anything about fashion or this website."
+        yield "Welcome to our Website. Feel free to ask anything about fashion or this website."
+        return
 
-    if any(topic in user_input.lower() for topic in allowed_topics):
-        model = genai.GenerativeModel("gemini-2.0-flash-001")
-        response = model.generate_content(user_input)
-        return response.text if response else "Sorry, I couldn't process that."
+    if user_input:
+        response = model.generate_content(user_input, stream=True)
+        for chunk in response:
+            yield chunk.text
+        return
 
-    return "Sorry, I couldn't process that. Please ask about fashion or this website."
+    yield "Sorry, I couldn't process that. Please ask about fashion or this website."
