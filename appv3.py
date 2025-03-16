@@ -8,6 +8,7 @@ from scrape import getDetails
 from PIL import Image
 import requests
 from io import BytesIO
+from genai import chat_with_gemini
 
 st.set_page_config(
     page_title="Get my Shirt",
@@ -33,6 +34,9 @@ st.markdown(
             text-align: center;
             margin: 0 auto 20px;
             width: 80%;
+        }
+        .text {
+            text-align: center;
         }
     </style>
     """, unsafe_allow_html=True
@@ -108,5 +112,27 @@ if analyze_clicked:
                     st.write(f"**{shirt['Product Name']}**")
                     st.write(f"Price: {shirt['Price']}")
                     st.markdown(f"[View Product]({shirt['Product Link']})")
+            shirts = getDetails()
+            cols = st.columns(5)
+            for i, shirt in enumerate(shirts):
+                with cols[i]:
+                    response = requests.get(shirt["Product Image"])
+                    img = Image.open(BytesIO(response.content))
+                    img = img.resize((150, 150))
+                    st.image(img, caption=f"Rating: {shirt["Rating"]}", use_container_width=True)
+                    st.write(f"**{shirt['Product Name']}**")
+                    st.write(f"Price: {shirt['Price']}")
+                    st.markdown(f"[View Product]({shirt['Product Link']})")
         else:
             st.error("T-Shirt detection or analysis failed.")
+
+with st.sidebar:
+    st.markdown(
+        """
+            <h1 class="text">AI Assistant</h1>
+        """, unsafe_allow_html=True
+    )
+    messages = st.container()
+    if prompt := st.chat_input("Say 'Hi'"):
+        messages.chat_message("user").write(prompt)
+        messages.chat_message("ai").write(chat_with_gemini(prompt, st.secrets["GEMINI_API"]))
