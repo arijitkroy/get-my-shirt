@@ -1,6 +1,6 @@
-# <p style="text-align: center">Get-My-Shirt: A Computer Vision Powered Approach</p>
-
 <img src="https://get-my-shirt.streamlit.app/~/+/media/4d0fc7deb631f5de30b63e7ff2f516889323d6d268c464a993ecdcc1.png"/>
+
+# A Computer Vision Powered Approach
 
 ## Links
 🔗 [Get-My-Shirt Website](https://get-my-shirt.streamlit.app/)  
