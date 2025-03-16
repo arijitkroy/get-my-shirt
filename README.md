@@ -9,10 +9,10 @@
 🔗 [Get-My-Shirt-YOLO_Model](https://colab.research.google.com/drive/1ughT0yDnSG0hD1A4nJMxJVt3OPfKWq3t?usp=sharing)
 
 ## Project Overview
-<u>Problem Statement:</u>
+<b>Problem Statement:</b>
 We aim to solve the losses faced by the e-commerce websites due to returns related to the size issues of the person buying the shirts / T-shirts.
 
-Solution / Approach:
+<b>Solution / Approach:</b>
 "Get My Shirt" is a web application that predicts a user's T-shirt size from an uploaded image and then recommends T-shirts from a database of scrapped e-commerce platforms like Meesho. The app leverages computer vision, artificial intelligence, deep learning, and web scraping to provide a personalized shopping experience.
 
 
