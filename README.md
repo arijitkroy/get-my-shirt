@@ -43,7 +43,8 @@
 
 ## 📊 Model Training Results
 ### YOLOv11 Model (T-Shirt Detection)
-- **Accuracy (mAP50):** 97.5%
+- **Accuracy (mAP50):** 99.5%
+- **Accuracy (mAP50-95):** 95.1%
 
 ### Fine-Tuned Gemini Flash Model (Interactive Chatbot)
 - Trained specifically for fashion-related queries.
