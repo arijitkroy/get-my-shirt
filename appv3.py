@@ -139,3 +139,17 @@ with st.sidebar:
         for chunk in chat_with_gemini_stream(prompt, st.secrets["GEMINI_API"]):
             full_response += chunk
             ai_placeholder.write(full_response)
+    st.markdown(
+        """
+            <div>
+                <h2 class="text">How "Get My Shirt" Works</h2>
+                <ul>
+                    <li> <b>Upload an Image</b> – Users upload a photo of themselves wearing a T-shirt.
+                    <li> <b>AI-Powered Size Prediction</b> – The system uses YOLOv11 and a deep learning model to analyze the image and predict the best-fitting T-shirt size.
+                    <li> <b>Scraped T-Shirt Recommendations</b> – The app fetches T-shirts database scraped from Meesho & Amazon and presents recommendations.
+                    <li> <b>Interactive Chatbot</b> – A Gemini AI-powered chatbot assists users with fashion-related queries and site navigation.
+                    <li> <b>Seamless Shopping Experience</b> – Users can browse recommended T-shirts and get direct links to purchase from e-commerce platforms.
+                </ul>
+            </div>
+        """, unsafe_allow_html=True
+    )
