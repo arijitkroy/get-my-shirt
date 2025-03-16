@@ -9,4 +9,3 @@ numpy
 pandas
 pillow
 requests
-io
