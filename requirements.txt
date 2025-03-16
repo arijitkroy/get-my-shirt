@@ -6,3 +6,7 @@ ultralytics
 mediapipe
 torch
 numpy
+pandas
+pillow
+requests
+io
